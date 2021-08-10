@@ -15,6 +15,7 @@ import { AuthGuardService } from './auth-guard.service';
     RegisterComponent,
     NotesComponent,
     LoginComponent
+
   ],
   imports: [
     BrowserModule,
