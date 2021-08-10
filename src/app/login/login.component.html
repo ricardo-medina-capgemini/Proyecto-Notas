@@ -1,5 +1,5 @@
 <h2>Log In</h2>
-<form>
+<form #fu="ngForm" (ngSubmit)="onSubmit(fu)">
     <div class="mb-3">
       <div class="mb-3">
         <label for="formFileSm" class="form-label">Email</label>
