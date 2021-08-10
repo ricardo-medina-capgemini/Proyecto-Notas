@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 
 import { NotesComponent } from './notes/notes.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from 'src/app-routing.module';
 
@@ -11,7 +12,8 @@ import { AppRoutingModule } from 'src/app-routing.module';
   declarations: [
     AppComponent,
     RegisterComponent,
-    NotesComponent
+    NotesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
