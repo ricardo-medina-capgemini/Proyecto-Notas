@@ -1,0 +1,38 @@
+<div class="separador"></div>
+<h2>Nueva nota</h2>
+<form #fu="ngForm" (ngSubmit)="guardarNota (fu)">
+    <div class="mb-3">
+        <label for="id" class="form-label">ID</label>
+        <input type="text" class="form-control" id="id" name="id" placeholder="Ingresa ID" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" ngModel>
+    </div>
+    <div class="mb-3">
+        <label for="tipo" class="form-label">Tipo</label>
+        <select class="form-select" aria-label="Default select example" name="tipo" ngModel >
+            <option selected>Selecciona una opcion</option>
+            <option value="nota">Nota</option>
+            <option value="tarea">Tarea</option>
+            <option value="recordatorio">Recordatorio</option>
+          </select>
+        
+    
+  
+       
+    </div>
+    <div class="mb-3">
+        <label for="fecha_a" class="form-label">Fecha A</label>
+        <input type="date" class="form-control" id="fecha_a" name="fecha_a" ng Model>
+    </div>
+    <div class="mb-3">
+        <label for="fecha_t" class="form-label">Fecha T</label>
+        <input type="date" class="form-control" id="fecha_t" name="fecha_t" ng Model>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

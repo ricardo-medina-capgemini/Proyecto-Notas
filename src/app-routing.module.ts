@@ -6,13 +6,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './app/login/login.component';
 import { AuthGuardService } from './app/auth-guard.service';
 import { UserComponent } from './app/user/user.component';
+import { NewNoteComponent } from './app/new-note/new-note.component';
 
 
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path: 'login', component:LoginComponent},
-  {path:'notes', component: NotesComponent, canActivate:[AuthGuardService]},
-  {path: 'user', component: UserComponent}
+  {path:'notes', component: NotesComponent,
+  children:[
+    {path:'new-note' , component:NewNoteComponent }
+  ]
+},
+  {path: 'user', component: UserComponent},
+
 ]
 
 @NgModule({
