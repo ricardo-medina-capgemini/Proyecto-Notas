@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './app/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './app/login/login.component';
+import { AuthGuardService } from './app/auth-guard.service';
+
 
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path: 'login', component:LoginComponent},
-  {path:'notes', component: NotesComponent}
+  {path:'notes', component: NotesComponent, canActivate:[AuthGuardService]}
 
 ]
 
