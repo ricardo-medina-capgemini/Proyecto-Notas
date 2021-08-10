@@ -5,11 +5,13 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from 'src/app-routing.module';
+import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent
     
 
   ],
