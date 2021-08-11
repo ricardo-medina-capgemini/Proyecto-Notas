@@ -17,7 +17,6 @@ export class UserService {
         }else{
             reject("Valor del email no valido")
         }
-        
     })
 
 }
@@ -28,5 +27,20 @@ export class UserService {
           this.users=this.apiServices.getUsers();
           resolve(this.users);
       })
+  }
+
+  logIn(email:string, password:string){
+    return new Promise((resolve,reject)=>{
+      let isUser= this.apiServices.login(email,password);
+      if(isUser){
+        resolve(true);
+      }else{
+        reject(false);
+      }
+    })
+  }
+
+  isLogin(){
+    return this.apiServices.getIsLogin();
   }
 }
