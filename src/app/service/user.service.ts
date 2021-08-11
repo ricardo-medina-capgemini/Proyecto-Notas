@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+import { ApiService } from '../api/api.service';
+import { User } from 'src/interfaces/user/user.module';
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
 
-  constructor() { }
-=======
   users: User[]=[];
   constructor(private apiServices: ApiService) { }
 
@@ -25,5 +29,4 @@ import { Injectable } from '@angular/core';
           resolve(this.users);
       })
   }
->>>>>>> 8e4556434b0cd081690ecb955c0a841df8072789
 }
