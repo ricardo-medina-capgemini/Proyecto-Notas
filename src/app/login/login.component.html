@@ -1,15 +1,18 @@
 <h2>Log In</h2>
-<form #fu="ngForm" (ngSubmit)="onSubmit(fu)">
+<form novalidate (ngSubmit)="validarCampos(userForm)" [formGroup]="userForm">
     <div class="mb-3">
       <div class="mb-3">
         <label for="formFileSm" class="form-label">Email</label>
-        <input class="form-control form-control-sm" name="email" type="email"ngModel>
+        <input class="form-control form-control-sm"  type="email" formControlName="email" ngModel>
       </div>
       <div>
         <label for="formFileLg" class="form-label">Password</label>
-        <input class="form-control form-control-lg" name="password" type="password" ngModel>
+        <input class="form-control form-control-lg"  type="password" formControlName="password" ngModel>
       </div>
       <div class="separador"></div>
       <button class="btn btn-primary" type="submit" value="Log in">Log in</button>
       </div>
 </form>
+<div class="alert alert-danger" role="alert">
+  {{message}}
+</div>
