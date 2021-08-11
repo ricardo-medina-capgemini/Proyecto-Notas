@@ -9,7 +9,7 @@ export class UserService {
   users: User[]=[];
   constructor(private apiServices: ApiService) { }
 
-  registerUser(user: User){
+  registertUser(user: User){
     return new Promise((resolve,reject)=>{
         if(user.email != null){
             this.apiServices.setUser(user)
