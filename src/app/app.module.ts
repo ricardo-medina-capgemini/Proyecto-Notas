@@ -11,6 +11,7 @@ import { AppRoutingModule } from 'src/app-routing.module';
 import { AuthGuardService } from './auth-guard.service';
 import { NewNoteComponent } from './new-note/new-note.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { NewNoteComponent } from './new-note/new-note.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
