@@ -12,7 +12,7 @@ import { NewNoteComponent } from './app/new-note/new-note.component';
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path: 'login', component:LoginComponent},
-  {path:'notes', component: NotesComponent,
+  {path:'notes', component: NotesComponent,canActivate:[AuthGuardService],
   children:[
     {path:'new-note' , component:NewNoteComponent }
   ]
