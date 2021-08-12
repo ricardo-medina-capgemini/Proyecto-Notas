@@ -28,20 +28,20 @@ login(email: string,password: string):boolean{ //login POST
   let pos=email.indexOf(email);
   if(pos!=-1){
     if(passwords[pos]===password){
-      localStorage.isLogIn=true;
+      localStorage.isLogIn=1;
       return true
     }else{
-      localStorage.isLogIn=false;
+      localStorage.isLogIn=0;
       return false;
     }
   }else{
-    localStorage.isLogIn=false;
+    localStorage.isLogIn=0;
     return false;
   }
 }
 
-getIsLogin():boolean{
-  return Boolean(localStorage.isLogin);
+getIsLogin():number{
+  return parseInt(localStorage.isLogin) || 0;
 }
 
 logOut(){ //logOut POST

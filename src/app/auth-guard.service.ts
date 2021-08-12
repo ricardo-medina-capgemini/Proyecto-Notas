@@ -10,7 +10,7 @@ export class AuthGuardService {
 
 
   canActivate(router: ActivatedRouteSnapshot, state:RouterStateSnapshot): boolean|UrlTree{
-    if(!this.userService.isLogin()){
+    if(this.userService.isLogin()===0){
       alert("No tienes permiso para estar en la seccion por favor de iniciar sesion");
       this.router.navigate(["login"],{queryParams: {retUrl: router.url}})
       return false;
