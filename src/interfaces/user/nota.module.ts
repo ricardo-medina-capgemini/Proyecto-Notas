@@ -1,4 +1,4 @@
-export interface Nota{
+export interface Note{
    id:String,
    titulo:String,
    descripcion:String,

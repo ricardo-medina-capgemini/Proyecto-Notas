@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Nota } from 'src/interfaces/user/nota.module';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Note } from 'src/interfaces/user/nota.module';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-new-note',
@@ -8,7 +9,9 @@ import { Nota } from 'src/interfaces/user/nota.module';
   styleUrls: ['./new-note.component.css']
 })
 export class NewNoteComponent implements OnInit {
-  nota:Nota = {
+  
+  noteForm: FormGroup;
+  note:Note = {
     id:"",
     titulo:"",
     descripcion:"",
@@ -18,14 +21,16 @@ export class NewNoteComponent implements OnInit {
     estado:""
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private userService: UserService) {
+    this.noteForm =new FormGroup({
+      titulo: new FormControl('',[Validators.required]),
+      descripcion: new FormControl('',[Validators.required]),
+      tipo: new FormControl('',[Validators.required]),
+      fecha_a: new FormControl('',[Validators.required]),
+      
+    })
   }
-
-  guardarNota(fu:NgForm){
-      this.nota = fu.value
-      console.log(this.nota);
+  ngOnInit(): void {
   }
 
 }
