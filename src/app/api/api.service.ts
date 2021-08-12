@@ -31,7 +31,7 @@ getUsers(): User[]{ //Users GET
 setNote(note: Note){ //Users POST
   this.notes.push(note);
   //formas de guardar en el localStorage
-  localStorage.users=JSON.stringify(this.notes);
+  localStorage.notes=JSON.stringify(this.notes);
 }
 
 getNotes(): Note[]{ //Users GET

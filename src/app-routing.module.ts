@@ -12,10 +12,8 @@ import { NewNoteComponent } from './app/new-note/new-note.component';
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path: 'login', component:LoginComponent},
-  {path:'notes', component: NotesComponent,canActivate:[AuthGuardService]},
-  {path:'new-note' , component:NewNoteComponent, canActivate:[AuthGuardService]}
-
-,
+  {path:'notes', component: NotesComponent},
+  {path:'new-note' , component:NewNoteComponent},
   {path: 'user', component: UserComponent},
 
 ]
