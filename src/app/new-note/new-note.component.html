@@ -1,9 +1,7 @@
 <div class="separador"></div>
 <h2>Nueva nota</h2>
-<form novalidate (ngSubmit)="register(noteForm)" [formGroup]="noteForm">    <div class="mb-3">
-        <label for="id" class="form-label">ID</label>
-        <input type="text" class="form-control" id="id" formControlName="id" placeholder="Ingresa ID" ngModel>
-    </div>
+<form novalidate (ngSubmit)="createNote(noteForm)" [formGroup]="noteForm">   
+
     <div class="mb-3">
         <label for="titulo" class="form-label">Titulo</label>
         <input type="text" class="form-control" id="titulo" formControlName="titulo" ngModel>
@@ -20,18 +18,21 @@
             <option value="tarea">Tarea</option>
             <option value="recordatorio">Recordatorio</option>
           </select>
-        
     
   
        
     </div>
     <div class="mb-3">
         <label for="fecha_a" class="form-label">Fecha A</label>
-        <input type="date" class="form-control" id="fecha_a" name="fecha_a" ng Model>
+        <input type="date" class="form-control" id="fecha_a" formControlName="fecha_a" ng Model>
     </div>
     <div class="mb-3">
         <label for="fecha_t" class="form-label">Fecha T</label>
-        <input type="date" class="form-control" id="fecha_t" name="fecha_t" ng Model>
+        <input type="date" class="form-control" id="fecha_t" formControlName="fecha_t" ng Model>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<div class="alert alert-info" role="alert">
+    {{message}}
+</div>

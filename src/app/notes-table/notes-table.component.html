@@ -11,16 +11,16 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Fecha</th>
           <th>Titulo</th>
           <th>Descripcion</th>
           <th>Tipo</th>
+          <th>Fecha Creacion</th>
           <th>Fecha de terminado</th>
           <th>Estado</th>
         </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let note of notes; index as i;">
+          <tr *ngFor="let note of notes;">
               <td>{{note.id}}</td>              
               <td>{{note.titulo}}</td>
               <td>{{note.descripcion}}</td>
