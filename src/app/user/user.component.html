@@ -2,13 +2,21 @@
 <table class="table">
     <thead class="table table-striped">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
+        <th scope="col">Name</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Phone</th>
         <th scope="col">Email</th>
+        <th scope="col">Password</th>
       </tr>
     </thead>
     <tbody>
+      <tr *ngFor="let user of users;">
+        <td>{{user.name}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+      </tr>
       
     </tbody>
   </table>
