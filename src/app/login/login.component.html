@@ -13,6 +13,8 @@
       <button class="btn btn-primary" type="submit" value="Log in">Log in</button>
       </div>
 </form>
-<div class="alert alert-danger" role="alert">
-  {{message}}
-</div>
+<ng-template [ngIf]="message!=''">
+  <div class="alert alert-info" role="alert">
+    {{message}}
+  </div>
+</ng-template>

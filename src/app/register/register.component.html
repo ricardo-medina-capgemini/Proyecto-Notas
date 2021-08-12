@@ -25,6 +25,8 @@
     <button type="submit" class="btn btn-primary">Submit</button>
     <div class="separador"></div>
 </form>
-<div class="alert alert-info" role="alert">
+<ng-template [ngIf]="message!=''">
+  <div class="alert alert-info" role="alert">
     {{message}}
   </div>
+</ng-template>
