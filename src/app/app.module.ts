@@ -12,13 +12,15 @@ import { AuthGuardService } from './auth-guard.service';
 import { NewNoteComponent } from './new-note/new-note.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     NotesComponent,
     LoginComponent,
-    NewNoteComponent
+    NewNoteComponent,
+    UserComponent
 
   ],
   imports: [
