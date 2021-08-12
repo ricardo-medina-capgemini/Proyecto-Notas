@@ -12,11 +12,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { NewNoteComponent } from './new-note/new-note.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { NotesTableComponent } from './notes-table/notes-table.component';
-=======
 import { UserComponent } from './user/user.component';
->>>>>>> e069d8a2a5a1bd3e797008e691219f23b063734f
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,11 +21,8 @@ import { UserComponent } from './user/user.component';
     NotesComponent,
     LoginComponent,
     NewNoteComponent,
-<<<<<<< HEAD
-    NotesTableComponent
-=======
+    NotesTableComponent,
     UserComponent
->>>>>>> e069d8a2a5a1bd3e797008e691219f23b063734f
 
   ],
   imports: [

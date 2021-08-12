@@ -11,6 +11,7 @@ import { UserService } from '../service/user.service';
 export class NewNoteComponent implements OnInit {
   
   noteForm: FormGroup;
+  message: any="";
   note:Note = {
     id:"",
     titulo:"",
@@ -31,6 +32,22 @@ export class NewNoteComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+  }
+
+  async register({value, valid}: {value: Note, valid: boolean }){
+    console.log(value, valid)
+    if(valid){
+      try{
+        //this.message=await this.userService.registertUser(value)
+        console.log(typeof this.message, this.message)
+      }catch(err){
+        console.log(err)
+      }
+      this.noteForm.reset()
+    }else{
+      this.message="Tienes campos invalidos"
+      console.log(this.noteForm)
+    }
   }
 
 }
