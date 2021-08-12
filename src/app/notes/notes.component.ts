@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Note } from 'src/interfaces/user/nota.module';
 
 @Component({
   selector: 'app-notes',

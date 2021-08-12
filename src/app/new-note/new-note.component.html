@@ -1,21 +1,20 @@
 <div class="separador"></div>
 <h2>Nueva nota</h2>
-<form #fu="ngForm" (ngSubmit)="guardarNota (fu)">
-    <div class="mb-3">
+<form novalidate (ngSubmit)="register(noteForm)" [formGroup]="noteForm">    <div class="mb-3">
         <label for="id" class="form-label">ID</label>
-        <input type="text" class="form-control" id="id" name="id" placeholder="Ingresa ID" ngModel>
+        <input type="text" class="form-control" id="id" formControlName="id" placeholder="Ingresa ID" ngModel>
     </div>
     <div class="mb-3">
         <label for="titulo" class="form-label">Titulo</label>
-        <input type="text" class="form-control" id="titulo" name="titulo" ngModel>
+        <input type="text" class="form-control" id="titulo" formControlName="titulo" ngModel>
     </div>
     <div class="mb-3">
         <label for="descripcion" class="form-label">Descripcion</label>
-        <input type="text" class="form-control" id="descripcion" name="descripcion" ngModel>
+        <input type="text" class="form-control" id="descripcion" formControlName="descripcion" ngModel>
     </div>
     <div class="mb-3">
         <label for="tipo" class="form-label">Tipo</label>
-        <select class="form-select" aria-label="Default select example" name="tipo" ngModel >
+        <select class="form-select" aria-label="Default select example" formControlName="tipo" ngModel >
             <option selected>Selecciona una opcion</option>
             <option value="nota">Nota</option>
             <option value="tarea">Tarea</option>
