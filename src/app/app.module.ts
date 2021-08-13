@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NotesTableComponent } from './notes-table/notes-table.component';
 import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersTableComponent } from './users-table/users-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NewNoteComponent,
     NotesTableComponent,
     UserComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsersTableComponent
 
   ],
   imports: [
