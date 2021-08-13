@@ -31,8 +31,7 @@ export class NewNoteComponent implements OnInit {
   }
 
   async createNote({value, valid}: {value: Note, valid: boolean }){
-       value.id = this.notesService.lastNote();
-    
+    value.id = this.notesService.lastNote();
     console.log(value, valid)
     if(valid){
       try{
