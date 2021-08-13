@@ -7,14 +7,9 @@ import { Note } from 'src/interfaces/user/nota.module';
 export class ApiService {
 
   users: User[] = [];
-  //_____Notes_______
-  notes: Note[] = [];
-  //________________
+
   constructor() {
     this.users=JSON.parse(localStorage.users || "[]");
-    //Notes____
-    this.notes=JSON.parse(localStorage.notes || "[]");
-    //_________
    }
 
 setUser(user: User){ //Users POST
@@ -23,20 +18,20 @@ setUser(user: User){ //Users POST
     localStorage.users=JSON.stringify(this.users);
 }
 
-getUsers(): User[]{ //Users GET
+getUsers(): User[]{
     this.users=JSON.parse(localStorage.users);
     return this.users;
 }
 //Notes--------------
-setNote(note: Note){ //Users POST
-  this.notes.push(note);
-  //formas de guardar en el localStorage
-  localStorage.notes=JSON.stringify(this.notes);
+setNote(note: Note){
+  let idUser=this.getId();
+  this.users[idUser].note.push(note);
+  localStorage.users=JSON.stringify(this.users);
 }
 
-getNotes(): Note[]{ //Users GET
-  this.notes=JSON.parse(localStorage.notes);
-  return this.notes;
+getNotes(): Note[]{
+  this.users=JSON.parse(localStorage.users);
+  return this.users[this.getId()].note;
 }
 //--------------
 login(email: string,password: string):boolean{ //login POST
@@ -47,19 +42,27 @@ login(email: string,password: string):boolean{ //login POST
   if(pos!=-1){
     if(passwords[pos]===password){
       localStorage.isLogIn=1;
+      localStorage.posUser=pos;
+      console.log(localStorage.posUser)
       return true
     }else{
       localStorage.isLogIn=0;
+      localStorage.posUser=-1;
       return false;
     }
   }else{
     localStorage.isLogIn=0;
+    localStorage.posUser=-1;
     return false;
   }
 }
 
 getIsLogin():number{
   return parseInt(localStorage.isLogIn) || 0;
+}
+
+getId(): number{
+  return parseInt(localStorage.posUser);
 }
 
 logOut(){ //logOut POST

@@ -7,6 +7,7 @@ import { LoginComponent } from './app/login/login.component';
 import { AuthGuardService } from './app/auth-guard.service';
 import { UserComponent } from './app/user/user.component';
 import { NewNoteComponent } from './app/new-note/new-note.component';
+import { DashboardComponent } from './app/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'notes', component: NotesComponent,canActivate:[AuthGuardService]},
   {path:'new-note' , component:NewNoteComponent,canActivate:[AuthGuardService]},
   {path: 'user', component: UserComponent,canActivate:[AuthGuardService]},
+  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuardService]}
 
 ]
 

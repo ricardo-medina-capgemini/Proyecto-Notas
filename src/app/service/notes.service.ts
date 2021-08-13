@@ -29,9 +29,11 @@ export class NotesService {
   }
   lastNote(){
     this.getNotes();
+    console.log(this.getNotes());
     if (this.notes.length>0){
-    let lastItem = this.notes[this.notes.length-1];
-    return lastItem.id+1;
+      let lastItem = this.notes[this.notes.length-1];
+      console.log(lastItem)
+      return lastItem.id+1
     } else{
       return 1;
     }

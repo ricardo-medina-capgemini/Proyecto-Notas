@@ -14,6 +14,7 @@ import { NewNoteComponent } from './new-note/new-note.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotesTableComponent } from './notes-table/notes-table.component';
 import { UserComponent } from './user/user.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     NewNoteComponent,
     NotesTableComponent,
-    UserComponent
+    UserComponent,
+    DashboardComponent
 
   ],
   imports: [

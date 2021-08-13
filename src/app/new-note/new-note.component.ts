@@ -11,7 +11,6 @@ import { UserService } from '../service/user.service';
 })
 export class NewNoteComponent implements OnInit {
   
-  count =1;
   noteForm: FormGroup;
   message: any="";
  
@@ -31,8 +30,7 @@ export class NewNoteComponent implements OnInit {
   }
 
   async createNote({value, valid}: {value: Note, valid: boolean }){
-       value.id = this.notesService.lastNote();
-    
+    value.id = this.notesService.lastNote();
     console.log(value, valid)
     if(valid){
       try{
@@ -42,7 +40,6 @@ export class NewNoteComponent implements OnInit {
         console.log(err)
       }
       this.noteForm.reset()
-      this.count++;
     }else{
       this.message="Tienes campos invalidos"
       console.log(this.noteForm)
