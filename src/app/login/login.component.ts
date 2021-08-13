@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   validarCampos({value, valid}: {value: any, valid: boolean }){
-    console.log(value,valid)
+    //console.log(value,valid)
     if(valid){
       this.loginUser(value.email,value.password)
       this.userForm.reset()
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   async loginUser(email: string,password:string){
     try {
       let valor= await this.userService.logIn(email,password)
-      console.log(valor)
+      //console.log(valor)
       this.router.navigate(["user"])
 
     } catch (error) {

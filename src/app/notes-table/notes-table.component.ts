@@ -10,7 +10,7 @@ import { NotesService } from '../service/notes.service';
 })
 export class NotesTableComponent implements OnInit {
 notes: Note [] = [];
-  
+
 constructor(private noteservice: NotesService){}
   ngOnInit(): void {
     this.getNotes();
@@ -19,6 +19,7 @@ constructor(private noteservice: NotesService){}
   async getNotes(){
     try{
       this.notes = await this.noteservice.getNotes();
+      console.log(this.notes)
     }
     catch(err){
       console.log(err);

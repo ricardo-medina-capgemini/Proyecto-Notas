@@ -43,7 +43,7 @@ login(email: string,password: string):boolean{ //login POST
   this.users=JSON.parse(localStorage.users || "[]");
   let emails =this.users.map(function(e){return e.email})
   let passwords =this.users.map(function(e){return e.password})
-  let pos=email.indexOf(email);
+  let pos=emails.indexOf(email);
   if(pos!=-1){
     if(passwords[pos]===password){
       localStorage.isLogIn=1;
@@ -59,7 +59,7 @@ login(email: string,password: string):boolean{ //login POST
 }
 
 getIsLogin():number{
-  return parseInt(localStorage.isLogin) || 0;
+  return parseInt(localStorage.isLogIn) || 0;
 }
 
 logOut(){ //logOut POST
