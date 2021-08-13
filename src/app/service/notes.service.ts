@@ -30,12 +30,12 @@ export class NotesService {
   lastNote(){
     this.getNotes();
     console.log(this.getNotes());
-    if (this.notes !=null){
-      let rNote = this.notes[this.notes.length-1];
-      console.log(rNote)
-      return rNote.id+1
+    if (this.notes.length>0){
+      let lastItem = this.notes[this.notes.length-1];
+      console.log(lastItem)
+      return lastItem.id+1
     } else{
-      return 1
+      return 1;
     }
   }
 }

@@ -11,7 +11,6 @@ import { UserService } from '../service/user.service';
 })
 export class NewNoteComponent implements OnInit {
   
-  count =1;
   noteForm: FormGroup;
   message: any="";
  
@@ -41,7 +40,6 @@ export class NewNoteComponent implements OnInit {
         console.log(err)
       }
       this.noteForm.reset()
-      this.count++;
     }else{
       this.message="Tienes campos invalidos"
       console.log(this.noteForm)

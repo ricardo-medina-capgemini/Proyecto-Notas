@@ -32,6 +32,8 @@ export class RegisterComponent implements OnInit {
   }*/
 
   async register({value, valid}: {value: User, valid: boolean }){
+    value.note = [];
+    value.id = this.userService.lastUser();
     console.log(value, valid)
     if(valid){
       try{

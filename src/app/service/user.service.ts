@@ -28,6 +28,17 @@ export class UserService {
       resolve(this.users);
     })
   }
+  lastUser(){
+    this.getUsers();
+    console.log(this.getUsers());
+    if (this.users.length>0){
+      let lastItem = this.users[this.users.length-1];
+      console.log(lastItem)
+      return lastItem.id+1
+    } else{
+      return 1;
+    }
+  }
 
   logIn(email: string, password: string) {
     return new Promise((resolve, reject) => {
