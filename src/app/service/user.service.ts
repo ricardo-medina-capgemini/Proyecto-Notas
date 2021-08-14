@@ -39,6 +39,9 @@ export class UserService {
       return 1;
     }
   }
+  DeleteUser(user: User){
+    this.apiServices.DeleteUser(user)
+  }
 
   logIn(email: string, password: string) {
     return new Promise((resolve, reject) => {

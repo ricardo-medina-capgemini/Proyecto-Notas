@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Note } from 'src/interfaces/user/nota.module';
+import { User } from 'src/interfaces/user/user.module';
 import { NotesService } from '../service/notes.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { NotesService } from '../service/notes.service';
 })
 export class NotesTableComponent implements OnInit {
 notes: Note [] = [];
+users: User[] = [];
 
 constructor(private noteservice: NotesService , private router:Router){}
   ngOnInit(): void {
@@ -32,5 +34,12 @@ constructor(private noteservice: NotesService , private router:Router){}
     this.router.navigate(["update-note" ,  { 'id': $valor }])
   }
 
+  getId(): number {
+    return parseInt(localStorage.posUser);
+  }
+  DeleteNote(note: Note){
+    this.noteservice.DeleteNote(note)    
+  }
+  
 }
 
