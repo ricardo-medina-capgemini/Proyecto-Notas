@@ -22,13 +22,29 @@ export class ApiService {
   getUsers(): User[] {
     this.users = JSON.parse(localStorage.users);
     return this.users;
-  }
-  //Notes--------------
-  setNote(note: Note) {
-    let idUser = this.getId();
-    this.users[idUser].note.push(note);
-    localStorage.users = JSON.stringify(this.users);
-  }
+}
+updateUser(user:User,id:any){
+  let userUpdate:User[]=JSON.parse(localStorage.users);
+  let pos=userUpdate.findIndex((e)=>e.id==id);
+  userUpdate[pos]=user;
+  this.users=userUpdate;
+  localStorage.users=JSON.stringify(this.users);
+
+}
+
+getUser(id:any): User{
+  let user:User[]=JSON.parse(localStorage.users);
+
+  let pos=user.findIndex((e)=>e.id==id);
+
+  return user[pos];
+}
+//Notes--------------
+setNote(note: Note){
+  let idUser=this.getId();
+  this.users[idUser].note.push(note);
+  localStorage.users=JSON.stringify(this.users);
+}
 
   updateNote(note: Note) {
     let id = note.id;
@@ -55,8 +71,8 @@ export class ApiService {
     //let id = user.id;
     let idUser = this.getId();
     let array: any = [];
-    let posUser = this.users.findIndex((e) => e.id == idUser); 
-    
+    let posUser = this.users.findIndex((e) => e.id == idUser);
+
       array = this.users.splice(this.users.findIndex((e) => e.id == idUser), 1);
       //console.log(this.users[idUser].note.findIndex((e)=>e.id));
       localStorage.users = JSON.stringify(this.users);

@@ -1,0 +1,31 @@
+<div class="separador"></div>
+<div class="card text-dark bg-light">
+    <div class="card-header text-primary"><h2>Update User</h2></div>
+    <div class="card-body text-primary">
+        <form novalidate (ngSubmit)="register(userForm)" [formGroup]="userForm">
+            <div class="mb-3">
+                <label for="exampleInputEmaill" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name"   formControlName="name" [(ngModel)]="user[0].name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmaill" class="form-label"> Apellidos</label>
+                <input type="text" class="form-control" id="lasticame" formControlName="lastname" [(ngModel)]="user[0].lastname">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmaill" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="phone" formControlName="phone" [(ngModel)]="user[0].phone">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" ng [(ngModel)]="user[0].password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="separador"></div>
+        </form>
+    </div>
+  </div>
+<ng-template [ngIf]="message!=''">
+  <div class="alert alert-info" role="alert">
+    {{message}}
+  </div>
+</ng-template>

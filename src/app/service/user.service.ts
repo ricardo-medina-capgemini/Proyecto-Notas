@@ -21,11 +21,28 @@ export class UserService {
 
   }
 
+updateUser(user: User,id:any) {
+    return new Promise((resolve, reject) => {
+      if (user.email != null) {
+        this.apiServices.updateUser(user,id)
+        resolve("Exito en la Operación, usuario Insertado correctamente")
+      } else {
+        reject("Valor del email no valido")
+      }
+    })
+
+  }
 
   getUsers() {//Retorna la promesa o la regresa
     return new Promise<User[]>((resolve, reject) => {
       this.users = this.apiServices.getUsers();
       resolve(this.users);
+    })
+  }
+  getUser(id:any) {//Retorna la promesa o la regresa
+    return new Promise<User>((resolve, reject) => {
+      let user = this.apiServices.getUser(id);
+      resolve(user);
     })
   }
   lastUser(){

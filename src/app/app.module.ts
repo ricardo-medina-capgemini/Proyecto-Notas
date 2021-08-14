@@ -17,6 +17,7 @@ import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersTableComponent } from './users-table/users-table.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { UpdateNoteComponent } from './update-note/update-note.component';
     UserComponent,
     DashboardComponent,
     UsersTableComponent,
-    UpdateNoteComponent
+    UpdateNoteComponent,
+    UpdateUserComponent
 
   ],
   imports: [
