@@ -33,6 +33,10 @@ updateNote(note: Note){
   })
 
 }
+
+DeleteNote(note: Note){
+  this.apiServices.DeleteNote(note)
+}
   getNotes(){//Retorna la promesa o la regresa
       return new Promise<Note[]>((resolve, reject)=>{
         //  this.notes=this.apiServices.getUsers();

@@ -28,6 +28,8 @@ export class UsersTableComponent implements OnInit {
     }
   }
 
-  
+  DeleteUser(user: User){
+    this.userservice.DeleteUser(user)
+  }
 
 }
