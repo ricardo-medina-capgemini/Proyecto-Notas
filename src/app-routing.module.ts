@@ -1,3 +1,4 @@
+import { UpdateUserComponent } from './app/update-user/update-user.component';
 import { NotesComponent } from './app/notes/notes.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'notes', component: NotesComponent,canActivate:[AuthGuardService]},
   {path:'new-note' , component:NewNoteComponent,canActivate:[AuthGuardService]},
   {path: 'user', component: UserComponent,canActivate:[AuthGuardService]},
-  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuardService]}
+  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuardService]},
+  {path: 'updateuser/:id',component:UpdateUserComponent,canActivate:[AuthGuardService]}
 
 ]
 
