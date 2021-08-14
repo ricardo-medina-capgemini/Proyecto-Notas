@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Note } from 'src/interfaces/user/nota.module';
 import { NotesService } from '../service/notes.service';
-import { UserService } from '../service/user.service';
-
 @Component({
-  selector: 'app-new-note',
-  templateUrl: './new-note.component.html',
-  styleUrls: ['./new-note.component.css']
+  selector: 'app-update-note',
+  templateUrl: './update-note.component.html',
+  styleUrls: ['./update-note.component.css']
 })
-export class NewNoteComponent implements OnInit {
-  
+export class UpdateNoteComponent implements OnInit {
   noteForm: FormGroup;
   message: any="";
- 
-  constructor(private notesService: NotesService ) {
+  id:number=0;
+  constructor(private notesService: NotesService ,  private route: ActivatedRoute) { 
     this.noteForm =new FormGroup({
 
       titulo: new FormControl('',[Validators.required]),
@@ -27,18 +24,21 @@ export class NewNoteComponent implements OnInit {
       
     })
   }
+
   ngOnInit(): void {
- 
-  //  var date = new Date();
-    //console.log(this.datepipe.transform(date,"yyyy-MM-dd"));
+    this.route.params.subscribe(params => {
+       this.id = params['id']
+      
+  });
+  console.log("se recupera el valor " + this.id)
   }
 
-  async createNote({value, valid}: {value: Note, valid: boolean }){
-    value.id = this.notesService.lastNote();
+  async updateNote({value, valid}: {value: Note, valid: boolean }){
+    value.id = this.id // = id del boton click en las notas 
     console.log(value, valid)
     if(valid){
       try{
-        this.message=await this.notesService.createNote(value)
+        this.message=await this.notesService.updateNote(value)
         console.log(typeof this.message, this.message)
       }catch(err){
         console.log(err)
@@ -49,5 +49,9 @@ export class NewNoteComponent implements OnInit {
       console.log(this.noteForm)
     }
   }
- 
+
+  Update(){
+    
+  }
+
 }

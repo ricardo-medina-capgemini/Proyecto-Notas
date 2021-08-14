@@ -1,0 +1,40 @@
+<div class="card text-dark bg-light" style="max-width: 18rem;">
+    <div class="card-header text-primary"><h3>Update Note</h3></div>
+    <div class="card-body text-primary">
+        <form novalidate (ngSubmit)="updateNote(noteForm)" [formGroup]="noteForm">
+
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="titulo" formControlName="titulo" ngModel>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <input type="text" class="form-control" id="descripcion" formControlName="descripcion" ngModel>
+            </div>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo</label>
+                <select class="form-select" aria-label="Default select example" formControlName="tipo" ngModel>
+                    <option selected>Selecciona una opcion</option>
+                    <option value="nota">Nota</option>
+                    <option value="tarea">Tarea</option>
+                    <option value="recordatorio">Recordatorio</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="fecha_a" class="form-label">Fecha A</label>
+                <input type="date" class="form-control" id="fecha_a" formControlName="fecha_a" ng Model>
+            </div>
+            <div class="mb-3">
+                <label for="fecha_t" class="form-label">Fecha T</label>
+                <input type="date" class="form-control" id="fecha_t" formControlName="fecha_t" ng Model>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="separador"></div>
+<ng-template [ngIf]="message!=''">
+    <div class="alert alert-info" role="alert">
+        {{message}}
+    </div>
+</ng-template>

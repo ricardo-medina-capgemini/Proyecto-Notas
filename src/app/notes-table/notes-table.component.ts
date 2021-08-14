@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Note } from 'src/interfaces/user/nota.module';
 import { NotesService } from '../service/notes.service';
 
@@ -11,7 +12,7 @@ import { NotesService } from '../service/notes.service';
 export class NotesTableComponent implements OnInit {
 notes: Note [] = [];
 
-constructor(private noteservice: NotesService){}
+constructor(private noteservice: NotesService , private router:Router){}
   ngOnInit(): void {
     this.getNotes();
   }
@@ -24,6 +25,11 @@ constructor(private noteservice: NotesService){}
     catch(err){
       console.log(err);
     }
+  }
+
+  Update($valor: any){
+    console.log("entre a update" + $valor)
+    this.router.navigate(["update-note" ,  { 'id': $valor }])
   }
 
 }

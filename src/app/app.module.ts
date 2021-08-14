@@ -16,6 +16,7 @@ import { NotesTableComponent } from './notes-table/notes-table.component';
 import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersTableComponent } from './users-table/users-table.component';
+import { UpdateNoteComponent } from './update-note/update-note.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { UsersTableComponent } from './users-table/users-table.component';
     NotesTableComponent,
     UserComponent,
     DashboardComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    UpdateNoteComponent
 
   ],
   imports: [

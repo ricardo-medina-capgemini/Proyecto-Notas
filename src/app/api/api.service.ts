@@ -29,6 +29,19 @@ setNote(note: Note){
   localStorage.users=JSON.stringify(this.users);
 }
 
+updateNote(note: Note){
+  let id = note.id;
+ // console.log("el id correcto es " + id)
+  let idUser=this.getId();
+  //console.log("el usuario correcto es" + idUser)
+// console.log("el cambio esta en" + JSON.stringify(this.users[idUser].note[id-1]))
+  this.users[idUser].note[id-1]=note;
+
+ // console.log("elJSON de usuarios que meto al storage es " + JSON.stringify(this.users));
+  
+  localStorage.users=JSON.stringify(this.users);
+}
+
 getNotes(): Note[]{
   this.users=JSON.parse(localStorage.users);
   return this.users[this.getId()].note;

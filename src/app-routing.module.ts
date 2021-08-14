@@ -8,11 +8,13 @@ import { AuthGuardService } from './app/auth-guard.service';
 import { UserComponent } from './app/user/user.component';
 import { NewNoteComponent } from './app/new-note/new-note.component';
 import { DashboardComponent } from './app/dashboard/dashboard.component';
+import { UpdateNoteComponent } from './app/update-note/update-note.component';
 
 
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path: 'login', component:LoginComponent},
+  {path: 'update-note', component:UpdateNoteComponent},
   {path:'notes', component: NotesComponent,canActivate:[AuthGuardService]},
   {path:'new-note' , component:NewNoteComponent,canActivate:[AuthGuardService]},
   {path: 'user', component: UserComponent,canActivate:[AuthGuardService]},
