@@ -21,15 +21,30 @@ export class NotesService {
     })
 
 }
+
+updateNote(note: Note){
+  return new Promise((resolve,reject)=>{
+      if(note != null){
+          this.apiServices.updateNote(note)
+          resolve("Exito en la Operación, nota actualizada!!!")
+      }else{
+          reject("Valor no valido")
+      }
+  })
+
+}
   getNotes(){//Retorna la promesa o la regresa
       return new Promise<Note[]>((resolve, reject)=>{
-          this.notes=this.apiServices.getNotes();
+        //  this.notes=this.apiServices.getUsers();
+        this.notes = this.apiServices.getNotes();
           resolve(this.notes);
       })
   }
   lastNote(){
     this.getNotes();
     console.log(this.getNotes());
+
+    
     if (this.notes.length>0){
       let lastItem = this.notes[this.notes.length-1];
       console.log(lastItem)
