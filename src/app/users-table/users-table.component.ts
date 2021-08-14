@@ -1,5 +1,6 @@
+import { Note } from './../../interfaces/user/nota.module';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from 'src/interfaces/user/user.module';
 
@@ -10,7 +11,10 @@ import { User } from 'src/interfaces/user/user.module';
   styleUrls: ['./users-table.component.css']
 })
 export class UsersTableComponent implements OnInit {
+  @Input() route:string=""
   users: User[] = [];
+  note: Note[]=[];
+  nameUser:string="My notes"
 
   constructor(private userservice:UserService ) { }
 
@@ -31,6 +35,11 @@ export class UsersTableComponent implements OnInit {
 
   DeleteUser(user: User){
     this.userservice.DeleteUser(user)
+  }
+  getUser(user: User){
+    this.note=[];
+    this.note=user.note;
+    this.nameUser=user.name+" "+user.lastname
   }
 
 }

@@ -3,10 +3,11 @@
     <h5 class="card-header">
       <div class="row">
         <div class="col-md-8">
-          <h3>My notes</h3>
+          <h3 *ngIf="route!='/dashboard'">My notes</h3>
+          <h3 *ngIf="route=='/dashboard'"> {{nameUser}}</h3>
         </div>
         <div class="col-md-4 " style="text-align: right;">
-          <a class="btn btn-primary " id="agregar-desglose" routerLink="/new-note">New note</a>
+          <a *ngIf="route!='/dashboard'"class="btn btn-primary " id="agregar-desglose" routerLink="/new-note">New note</a>
         </div>
       </div>
     </h5>
@@ -20,22 +21,21 @@
             <th>Tipo</th>
             <th>Fecha Creacion</th>
             <th>Fecha de terminado</th>
-            <th>Estado</th>
-            <th>Actualizar</th>
-            <th>Eliminar</th>
+            <th *ngIf="route!='/dashboard'">Actualizar</th>
+            <th *ngIf="route!='/dashboard'">Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let note of notes;">
+
+          <tr *ngFor="let note of note;">
             <td>{{note.id}}</td>
             <td>{{note.titulo}}</td>
             <td>{{note.descripcion}}</td>
             <td>{{note.tipo}}</td>
             <td>{{note.fecha_a}}</td>
             <td>{{note.fecha_t}}</td>
-            <td>{{note.estado}}</td>
-            <td ><button class="btn btn-info" (click)="Update(note.id);">Actualizar</button></td>
-            <td ><button class="btn btn-info" (click)="DeleteNote(note);">Delete</button></td>
+            <td *ngIf="route!='/dashboard'"><button class="btn btn-info" (click)="Update(note.id);">Actualizar</button></td>
+            <td *ngIf="route!='/dashboard'"><button class="btn btn-info" (click)="DeleteNote(note);">Delete</button></td>
           </tr>
         </tbody>
       </table>

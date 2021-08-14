@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Note } from 'src/interfaces/user/nota.module';
 import { User } from 'src/interfaces/user/user.module';
@@ -10,32 +11,11 @@ import { UserService } from '../service/user.service';
 
 })
 export class DashboardComponent implements OnInit {
-  users: User[] = [];
-  notes: Note[] = [];
 
-  nameUser="My Notes";
-
-  constructor(private userservice:UserService ) { }
+  route=""
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
-    this.getUsers();
-
+    this.route=this.router.url;
   }
-
-  async getUsers(){
-    try{
-      this.users = await this.userservice.getUsers();
-    }
-
-    catch(err){
-      console.log(err);
-    }
-  }
-
-  getNotesUser(posUser: number){
-    let user=this.users[posUser];
-    this.nameUser=user.name+" "+user.lastname;
-    this.notes=user.note;
-  }
-
 }

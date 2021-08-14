@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Note } from 'src/interfaces/user/nota.module';
@@ -11,18 +12,21 @@ import { NotesService } from '../service/notes.service';
   styleUrls: ['./notes-table.component.css']
 })
 export class NotesTableComponent implements OnInit {
-notes: Note [] = [];
-users: User[] = [];
+  @Input() route:string=""
+  @Input() note:Note[]=[];
+  @Input() nameUser:string=""
+
 
 constructor(private noteservice: NotesService , private router:Router){}
   ngOnInit(): void {
-    this.getNotes();
+    if(this.route!="/dashboard"){
+      this.getNotes();
+    }
   }
 
   async getNotes(){
     try{
-      this.notes = await this.noteservice.getNotes();
-      console.log(this.notes)
+      this.note = await this.noteservice.getNotes();
     }
     catch(err){
       console.log(err);
@@ -38,8 +42,7 @@ constructor(private noteservice: NotesService , private router:Router){}
     return parseInt(localStorage.posUser);
   }
   DeleteNote(note: Note){
-    this.noteservice.DeleteNote(note)    
+    this.noteservice.DeleteNote(note)
   }
-  
 }
 
