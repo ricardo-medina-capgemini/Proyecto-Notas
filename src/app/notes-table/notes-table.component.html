@@ -34,8 +34,8 @@
             <td>{{note.tipo}}</td>
             <td>{{note.fecha_a}}</td>
             <td>{{note.fecha_t}}</td>
-            <td *ngIf="route!='/dashboard'"><button class="btn btn-info" (click)="Update(note.id);">Actualizar</button></td>
-            <td *ngIf="route!='/dashboard'"><button class="btn btn-info" (click)="DeleteNote(note);">Delete</button></td>
+            <td *ngIf="route!='/dashboard'"><button class="btn btn-warning" (click)="Update(note.id);">Update</button></td>
+            <td *ngIf="route!='/dashboard'"><a class="btn btn-danger" (click)="showModal(note)">Deleted</a></td>
           </tr>
         </tbody>
       </table>
