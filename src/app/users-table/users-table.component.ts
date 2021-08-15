@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from 'src/interfaces/user/user.module';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -40,6 +41,28 @@ export class UsersTableComponent implements OnInit {
     this.note=[];
     this.note=user.note;
     this.nameUser=user.name+" "+user.lastname
+  }
+
+  showModal(user:User){
+    Swal.fire({
+      title: '¿Estas Seguro de borrar?',
+      text: "El cambio es irreversible",
+      icon: 'info',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        this.DeleteUser(user);
+      }
+    })
   }
 
 }

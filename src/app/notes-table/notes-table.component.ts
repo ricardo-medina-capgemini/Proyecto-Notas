@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Note } from 'src/interfaces/user/nota.module';
 import { User } from 'src/interfaces/user/user.module';
 import { NotesService } from '../service/notes.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-notes-table',
   templateUrl: './notes-table.component.html',
@@ -15,6 +15,8 @@ export class NotesTableComponent implements OnInit {
   @Input() route:string=""
   @Input() note:Note[]=[];
   @Input() nameUser:string=""
+
+
 
 
 constructor(private noteservice: NotesService , private router:Router){}
@@ -44,5 +46,28 @@ constructor(private noteservice: NotesService , private router:Router){}
   DeleteNote(note: Note){
     this.noteservice.DeleteNote(note)
   }
+
+  showModal(note:Note){
+    Swal.fire({
+      title: '¿Estas Seguro de borrar?',
+      text: "El cambio es irreversible",
+      icon: 'info',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        this.DeleteNote(note)
+      }
+    })
+  }
+
 }
 

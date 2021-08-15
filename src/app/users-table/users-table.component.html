@@ -23,9 +23,9 @@
             <td>{{user.phone}}</td>
             <td>{{user.email}}</td>
             <td>{{user.password}}</td>
-            <td *ngIf="route=='/dashboard'"><button class="btn btn-info" (click)="getUser(user);">Notas</button></td>
-            <td *ngIf="route!='/dashboard'" ><button class="btn btn-info" (click)="DeleteUser(user);">Delete</button></td>
-            <td *ngIf="route!='/dashboard'"><a  class="btn btn-info" [routerLink]="['/updateuser',user.id]">Update</a></td>
+            <td *ngIf="route=='/dashboard'"><button class="btn btn-info" (click)="getUser(user);">Notes</button></td>
+            <td *ngIf="route!='/dashboard'"><a class="btn btn-danger" (click)="showModal(user)">Deleted</a></td>
+            <td *ngIf="route!='/dashboard'"><a  class="btn btn-warning" [routerLink]="['/updateuser',user.id]">Update</a></td>
           </tr>
 
         </tbody>
