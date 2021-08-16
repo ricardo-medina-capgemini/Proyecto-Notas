@@ -1,38 +1,36 @@
-<div class="card text-dark bg-light">
-    <div class="card-header text-primary">
-      <h3>Lista de usuarios</h3>
-    </div>
-    <div class="card-body text-primary">
-      <table class="table">
-        <thead class="table table-striped">
+<body style="align-items: center;">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="text-primary">List of Users</h3>
+      <table class="table table-striped table-hover text-primary" style="text-align: center;">
+        <thead class="text-primary">
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">LastName</th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th *ngIf="route=='/dashboard'" scope="col">Notas</th>
-            <th  *ngIf="route!='/dashboard'" scope="col">Eliminar</th>
-            <th *ngIf="route!='/dashboard'" scope="col">Actualizar</th>
+            <th *ngIf="route=='/dashboard'" scope="col">Notes</th>
+            <th *ngIf="route!='/dashboard'" scope="col">Delete</th>
+            <th *ngIf="route!='/dashboard'" scope="col">Update</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let user of users;">
-            <td>{{user.name}}</td>
-            <td>{{user.lastname}}</td>
+            <td>{{user.name}} {{user.lastname}}</td>
             <td>{{user.phone}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.password}}</td>
-            <td *ngIf="route=='/dashboard'"><button class="btn btn-info" (click)="getUser(user);">Notes</button></td>
+            <td *ngIf="route=='/dashboard'"><button class="btn btn-info" (click)="getUser(user);">Notes</button>
+            </td>
             <td *ngIf="route!='/dashboard'"><a class="btn btn-danger" (click)="showModal(user)">Deleted</a></td>
-            <td *ngIf="route!='/dashboard'"><a  class="btn btn-warning" [routerLink]="['/updateuser',user.id]">Update</a></td>
+            <td *ngIf="route!='/dashboard'"><a class="btn btn-warning" [routerLink]="['/updateuser',user.id]">Update</a>
+            </td>
           </tr>
-
         </tbody>
       </table>
     </div>
+    <div *ngIf="route=='/dashboard'" class="col-md-6">
+      <div class="separator">
+        <app-notes-table [route]="route" [nameUser]="nameUser" [note]="note"></app-notes-table>
+      </div>
+    </div>
   </div>
-  <div *ngIf="route=='/dashboard'" class="separator">
-    <app-notes-table  [route]="route" [nameUser]="nameUser" [note]="note"></app-notes-table>
-  </div>
-
+</body>
