@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
 import { User } from 'src/interfaces/user/user.module';
-//import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -44,7 +44,7 @@ export class UsersTableComponent implements OnInit {
   }
 
   showModal(user:User){
-    /*Swal.fire({
+    Swal.fire({
       title: '¿Estas Seguro de borrar?',
       text: "El cambio es irreversible",
       icon: 'info',
@@ -62,7 +62,7 @@ export class UsersTableComponent implements OnInit {
         )
         this.DeleteUser(user);
       }
-    })*/
+    })
   }
 
 }

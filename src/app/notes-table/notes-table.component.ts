@@ -48,7 +48,7 @@ constructor(private noteservice: NotesService , private router:Router){}
   }
 
   showModal(note:Note){
-    /*Swal.fire({
+    Swal.fire({
       title: '¿Estas Seguro de borrar?',
       text: "El cambio es irreversible",
       icon: 'info',
@@ -66,7 +66,7 @@ constructor(private noteservice: NotesService , private router:Router){}
         )
         this.DeleteNote(note)
       }
-    })*/
+    })
   }
 
 }
