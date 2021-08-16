@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Note } from 'src/interfaces/user/nota.module';
 import { User } from 'src/interfaces/user/user.module';
 import { NotesService } from '../service/notes.service';
-//import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-notes-table',
   templateUrl: './notes-table.component.html',
