@@ -71,16 +71,14 @@ setNote(note: Note){
     //let id = user.id;
     let idUser = this.getId();
     let array: any = [];
-    let posUser = this.users.findIndex((e) => e.id == idUser);
+    let posUser = this.users.findIndex((e) => e.id == user.id);
 
       array = this.users.splice(this.users.findIndex((e) => e.id == idUser), 1);
       //console.log(this.users[idUser].note.findIndex((e)=>e.id));
       localStorage.users = JSON.stringify(this.users);
-      if (posUser != idUser) {
+      if (posUser == idUser) {
         localStorage.isLogIn = 0;
         this.router.navigate(["login"])
-
-
     }
   }
 
