@@ -1,8 +1,9 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup } from '@angular/forms';
 import { User } from 'src/interfaces/user/user.module';
 import { UserService } from '../service/user.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   userForm: FormGroup;
   message: any="";
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,private router:Router) {
     this.userForm=new FormGroup({
       name: new FormControl('',[Validators.required]),
       lastname: new FormControl('',[Validators.required]),
@@ -37,14 +38,25 @@ export class RegisterComponent implements OnInit {
     console.log(value, valid)
     if(valid){
       try{
-        this.message=await this.userService.registertUser(value)
+        this.message=await this.userService.registertUser(value);
+        Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario creado',
+        showConfirmButton: false,
+        timer: 1000
+        })
+        this.userForm.reset()
+        setTimeout(()=>{
+          this.router.navigate(["login"])
+        },1000)
+
         console.log(typeof this.message, this.message)
       }catch(err){
         console.log(err)
       }
-      this.userForm.reset()
+
     }else{
-      this.message="Tienes campos invalidos"
       console.log(this.userForm)
     }
   }
