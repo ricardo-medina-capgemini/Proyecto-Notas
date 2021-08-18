@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, Validators, FormGroup } from '@angular/forms';
-import { User } from 'src/interfaces/user/user.module'; 
+import { User } from 'src/interfaces/user/user.module';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  
+
   userForm: FormGroup;
   message: any="";
 
@@ -48,4 +48,8 @@ export class RegisterComponent implements OnInit {
       console.log(this.userForm)
     }
   }
+
+  get formAltaControls(): any {
+    return this.userForm['controls']
+ }
 }
