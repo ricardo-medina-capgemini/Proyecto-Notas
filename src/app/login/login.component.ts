@@ -47,4 +47,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  get formAltaControls(): any {
+    return this.userForm['controls']
+ }
+
 }

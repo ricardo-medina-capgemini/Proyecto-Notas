@@ -6,25 +6,64 @@
             <div class="mb-3">
                 <label for="exampleInputEmaill" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="name" formControlName="name" ngModel>
+                <div *ngIf="formAltaControls.name.invalid && formAltaControls.name.errors && (formAltaControls.name.dirty || formAltaControls.name.touched)" class="alert alert-danger form-danger" role="alert">
+                  <small *ngIf="formAltaControls.name.errors.required ">
+                    Campo requerido!
+                  </small>
+                </div>
             </div>
+
             <div class="mb-3">
                 <label for="exampleInputEmaill" class="form-label"> Apellidos</label>
                 <input type="text" class="form-control" id="lasticame" formControlName="lastname" ngModel>
+                <div *ngIf="formAltaControls.lastname.invalid && formAltaControls.lastname.errors && (formAltaControls.lastname.dirty || formAltaControls.lastname.touched)" class="alert alert-danger form-danger" role="alert">
+                  <small *ngIf="formAltaControls.lastname.errors.required ">
+                    Campo requerido!
+                  </small>
+                </div>
             </div>
+
             <div class="mb-3">
                 <label for="exampleInputEmaill" class="form-label">Telefono</label>
                 <input type="text" class="form-control" id="phone" formControlName="phone" ngModel>
+                <div *ngIf="formAltaControls.phone.invalid && formAltaControls.phone.errors && (formAltaControls.phone.dirty || formAltaControls.phone.touched)" class="alert alert-danger form-danger" role="alert">
+                  <small *ngIf="formAltaControls.phone.errors.required ">
+                    campo requerido!
+                  </small>
+                  <small class="text-danger" *ngIf="formAltaControls.phone.hasError('minlength')">
+                    Minimo de caracteres para este campo {{formAltaControls.phone.errors.minlength.requiredLength}}
+                  </small>
+                  </div>
             </div>
+
             <div class="mb-3">
                 <label for="exampleInputEmaill" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail" formControlName="email" aria-describedby="email" ngModel>
                 <div id=" emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div *ngIf="formAltaControls.email.invalid && formAltaControls.email.errors && (formAltaControls.email.dirty || formAltaControls.email.touched)" class="alert alert-danger form-danger" role="alert">
+                  <small *ngIf="formAltaControls.email.errors.required">
+                    Email necesario!
+                  </small>
+                  <small *ngIf="formAltaControls.email.errors.email">
+                    Formato name@dominio.com
+                  </small>
+                </div>
             </div>
+
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" ng Model>
+                <div *ngIf="formAltaControls.password.invalid && formAltaControls.password.errors && (formAltaControls.password.dirty || formAltaControls.password.touched)" class="alert alert-danger form-danger" role="alert">
+                  <small *ngIf="formAltaControls.password.errors.required ">
+                    Campo requerido!
+                  </small>
+                  <small class="text-danger" *ngIf="formAltaControls.password.hasError('minlength')">
+                    Minimo de caracteres para este campo {{formAltaControls.password.errors.minlength.requiredLength}}
+                  </small>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Submit</button>
             <div class="separador"></div>
         </form>
     </div>

@@ -1,6 +1,7 @@
+import { User } from './../../interfaces/user/user.module';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from './../service/user.service';
-import { User } from 'src/interfaces/user/user.module';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -37,16 +38,20 @@ export class UpdateUserComponent implements OnInit {
     try{
       this.user=[];
       this.user.push(await this.userservice.getUser(this.idUser));
-      console.log(this.user)
 
+      this.userForm.setValue({
+        name: this.user[0].name,
+        lastname: this.user[0].lastname,
+        phone: this.user[0].phone,
+        password:this.user[0].password
+      })
     }
-
     catch(err){
       console.log(err);
     }
   }
 
-  async register({value, valid}: {value: User, valid: boolean }){
+  async updateUser({value, valid}: {value: User, valid: boolean }){
 
     if(valid){
       try{
@@ -62,4 +67,8 @@ export class UpdateUserComponent implements OnInit {
       console.log(this.userForm)
     }
   }
+
+  get formAltaControls(): any {
+    return this.userForm['controls']
+ }
 }
