@@ -27,6 +27,7 @@ export class UsersTableComponent implements OnInit {
   async getUsers(){
     try{
       this.users = await this.userservice.getUsers();
+      console.log(this.users)
     }
 
     catch(err){

@@ -4,7 +4,7 @@ import { UserService } from './../service/user.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
@@ -38,7 +38,7 @@ export class UpdateUserComponent implements OnInit {
     try{
       this.user=[];
       this.user.push(await this.userservice.getUser(this.idUser));
-
+      console.log(this.user)
       this.userForm.setValue({
         name: this.user[0].name,
         lastname: this.user[0].lastname,
@@ -52,12 +52,23 @@ export class UpdateUserComponent implements OnInit {
   }
 
   async updateUser({value, valid}: {value: User, valid: boolean }){
-
+      value.email=this.user[0].email
+      value.id=this.user[0].id
     if(valid){
       try{
-        this.message=await this.userservice.updateUser(this.user[0],this.idUser)
+        this.message=await this.userservice.updateUser(value,this.idUser)
         console.log(typeof this.message, this.message)
-        this.router.navigate(["user"])
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Usuario Modificado',
+          showConfirmButton: false,
+          timer: 1000
+
+          })
+        setTimeout(()=>{
+          this.router.navigate(["user"])
+        },1000)
       }catch(err){
         console.log(err)
       }
